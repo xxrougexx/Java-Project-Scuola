@@ -48,18 +48,19 @@ public class Parcheggio {
 		}
 	}
 	public boolean uscita(){
-		if (n_postioccupati==0){
+		if (n_posti_occupati==0){
 			setStrerrore(this.strerrore);
 			return false;
 		}
 		else{
-		n_posti_occupati--;
-		return true;
+			n_posti_occupati--;
+			return true;
 		}
 	}
 	public int postiLiberi(){
 		int postiLib;
 		postiLib = n_posti-n_posti_occupati;
+		return postiLib;
 	}
 	public int incasso(){
 		int soldi=0;
