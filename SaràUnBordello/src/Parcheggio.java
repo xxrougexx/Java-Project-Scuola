@@ -39,22 +39,44 @@ public class Parcheggio {
 	public boolean ingresso(){
 		n_posti_occupati++;
 		n_ingressi++;
-		return true;
+		if(this.n_posti_occupati-this.n_posti==0){
+			setStrerrore(this.strerrore);
+			return false;
+		}
+		else{
+			return true;
+		}
 	}
 	public boolean uscita(){
+		if (n_postioccupati==0){
+			setStrerrore(this.strerrore);
+			return false;
+		}
+		else{
 		n_posti_occupati--;
-		return false;
+		return true;
+		}
 	}
 	public int postiLiberi(){
-		
+		int postiLib;
+		postiLib = n_posti-n_posti_occupati;
 	}
 	public int incasso(){
-		
+		int soldi=0;
+		soldi=soldi+valoreParcheggio();
+		return soldi;
 	}
 	public int valoreLordo(){
+		int valLor=0;
+		valLor=valLor+incasso()+valoreParcheggio();
+		return valLor;
 		
 	}
 	public int valoreParcheggio(){
+		int val=0;
+		val=val+(n_posti_occupati*costo_posto);
+		return val;
+	}
 	
 	
 	
